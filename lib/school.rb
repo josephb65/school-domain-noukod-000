@@ -2,13 +2,13 @@ class School
 
   attr_accessor :roster
 
-  def initialize(name)
-    @name = name
-    @roster = Hash.new { |h,k| h[k] = []}
+  def initialize(stu_name)
+    @stu_name = stu_name
+    @roster = Hash.new { |i,j| i[j] = []}
   end
 
-  def add_student(name, year)
-    @roster[year] << name
+  def add_student(stu_name, year)
+    @roster[year] << stu_name
   end
 
   def grade(year)
@@ -19,7 +19,7 @@ class School
     Hash[@roster.collect{ |a| [a.first, sort_students(a.first)] }]
   end
 
-  private # cannot be called with an explicit receiver. only implicit receiver
+ 
 
   def sort_students(year)
    grade(year).sort
